@@ -20,25 +20,25 @@ public class MainActivity extends AppCompatActivity {
 
         int id = view.getId();
         if (id == R.id.addition) {
-            goToActivity(firstNum + secondNum);
+            goToActivity((double) firstNum + secondNum);
         }
         else if (id == R.id.subtraction) {
-            goToActivity(firstNum - secondNum);
+            goToActivity((double) firstNum - secondNum);
         }
         else if (id == R.id.multiplication) {
-            goToActivity(firstNum * secondNum);
+            goToActivity((double) firstNum * secondNum);
         }
         else if (id == R.id.division) {
             if (secondNum == 0) {
                 Toast.makeText(MainActivity.this, "You can not divide by 0, please enter another number", Toast.LENGTH_LONG).show();
             }
             else {
-                goToActivity(firstNum / secondNum);
+                goToActivity((double) firstNum / secondNum);
             }
         }
     }
 
-    public void goToActivity(int result) {
+    public void goToActivity(double result) {
         Intent intent = new Intent(this, results.class);
         intent.putExtra("result", result);
         startActivity(intent);

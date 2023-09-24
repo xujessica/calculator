@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class results extends AppCompatActivity {
 
     TextView textView;
@@ -17,7 +19,10 @@ public class results extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.total);
         Intent intent = getIntent();
-        int result = intent.getIntExtra("result", 0);
-        textView.setText("The total is " + result);
+        double result = intent.getDoubleExtra("result", 0);
+
+        // https://stackoverflow.com/questions/8137218/trim-double-to-2-decimal-places
+        DecimalFormat df = new DecimalFormat("#.##");
+        textView.setText("" + df.format(result));
     }
 }
